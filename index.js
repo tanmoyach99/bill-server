@@ -15,7 +15,7 @@ const { updateBill } = require('./controller/bill.js');
 
 app.use(cors());
 app.use(express.json())
-const PORT=5221;
+
 
 mongoose.connect('mongodb+srv://tanmoy999:tanmoy99@cluster0.4x4xi.mongodb.net/powerhouse', {
       useNewUrlParser: true,
@@ -79,7 +79,7 @@ app.post('/api/create-bill',createBill);
 app.get('/api/billing-list',getBills);
 app.delete('/api/delete-billing/:_id',removeBills)
 app.put('/api/update-billing/:_id',updateBill)
-app.listen(PORT,()=>{
+app.listen(5221,()=>{
     console.log('server is started')
 
 })
