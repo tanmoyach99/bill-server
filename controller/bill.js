@@ -1,6 +1,6 @@
 const Bill = require("../models/bill");
 
-const User = require("../models/user");
+
 
 exports.createBill = async (req, res) => {
   try {
