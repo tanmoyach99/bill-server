@@ -9,23 +9,19 @@ const { createBill } = require('./controller/bill.js');
 const { getBills } = require('./controller/bill.js');
 const { removeBills } = require('./controller/bill.js');
 const { updateBill } = require('./controller/bill.js');
-const { getBillList } = require('./controller/bill.js');
+
+
+
+
+app.use(cors());
+app.use(express.json())
+const PORT=5221;
 
 mongoose.connect('mongodb+srv://tanmoy999:tanmoy99@cluster0.4x4xi.mongodb.net/powerhouse', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }).then(() => console.log("db connected"))
   .catch((err) => console.log(`db connection err`, err));
-
-app.use(cors());
-app.use(express.json())
-const PORT=5221;
-
-app.get("/",(req,res)=>{
-   
-    res.send("server started")
-
-});
 
 app.post('/api/register',async(req,res)=>{
 
@@ -58,7 +54,7 @@ app.post('/api/login',async(req,res)=>{
         if(user){
             const token=jwt.sign({
                 email:user.email,
-                namee:user.name
+                name:user.name
 
             },'secret23456');
            
